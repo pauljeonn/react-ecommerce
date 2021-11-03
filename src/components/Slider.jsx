@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { MdArrowBackIos } from 'react-icons/md';
 import { MdArrowForwardIos } from 'react-icons/md';
+import { sliderItems } from '../data';
 
 const Container = styled.div`
 	width: 100%;
 	height: calc(100vh - 90px);
 	display: flex;
-	background-color: coral;
+	background-color: #ffd0c6;
 	position: relative;
+	overflow-x: hidden;
 `;
 
 const Arrow = styled.div`
 	width: 50px;
 	height: 50px;
-	// background-color: ivory;
-	// border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -28,10 +28,11 @@ const Arrow = styled.div`
 	cursor: pointer;
 	opacity: 0.7;
 	font-size: 20px;
+	z-index: 2;
 `;
 
 const Wrapper = styled.div`
-	height: calc(100% - 90px);
+	height: 100%;
 	display: flex;
 	align-items: center;
 `;
@@ -41,21 +42,23 @@ const Slide = styled.div`
 	height: 100%;
 	display: flex;
 	align-items: center;
+	background-color: #${(props) => props.bg};
 `;
 
 const ImgContainer = styled.div`
 	flex: 1;
 	height: 100%;
-	margin-top: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
 `;
 
 const Image = styled.img`
-	height: 80%;
+	height: 100%;
 `;
 
 const InfoContainer = styled.div`
 	flex: 1;
-	padding: 50px;
 `;
 
 const Title = styled.h1`
@@ -74,24 +77,30 @@ const Button = styled.button`
 `;
 
 const Slider = () => {
+	const [slideIndex, setSlideIndex] = useState(0);
+
+	const handleClick = (direction) => {};
+
 	return (
 		<Container>
-			<Arrow direction="left">
+			<Arrow direction="left" onClick={() => handleClick('left')}>
 				<MdArrowBackIos />
 			</Arrow>
 			<Wrapper>
-				<Slide>
-					<ImgContainer>
-						<Image src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0d4b8b86-ce06-4b19-863c-b3a0d6ebfab1/d8gxi1d-1e73c77d-7682-49c2-b677-60136aa7ea1c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzBkNGI4Yjg2LWNlMDYtNGIxOS04NjNjLWIzYTBkNmViZmFiMVwvZDhneGkxZC0xZTczYzc3ZC03NjgyLTQ5YzItYjY3Ny02MDEzNmFhN2VhMWMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.HEKKtQbvQJtjzzk5vw_ZUcb4eVQvLzD7PD22zoiu3Bo" />
-					</ImgContainer>
-					<InfoContainer>
-						<Title>SUMMER SALE</Title>
-						<Desc>GET 50% OFF SALE NOW!</Desc>
-						<Button>SHOP NOW</Button>
-					</InfoContainer>
-				</Slide>
+				{sliderItems.map((item) => (
+					<Slide bg={item.bg}>
+						<ImgContainer>
+							<Image src={item.img} />
+						</ImgContainer>
+						<InfoContainer>
+							<Title>{item.title}</Title>
+							<Desc>{item.desc}</Desc>
+							<Button>SHOP NOW</Button>
+						</InfoContainer>
+					</Slide>
+				))}
 			</Wrapper>
-			<Arrow direction="right">
+			<Arrow direction="right" onClick={() => handleClick('right')}>
 				<MdArrowForwardIos />
 			</Arrow>
 		</Container>
