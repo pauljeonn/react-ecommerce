@@ -22,6 +22,7 @@ const Arrow = styled.div`
 	position: absolute;
 	top: 0;
 	bottom: 0;
+	// direction props에 따라서 위치 설정
 	left: ${(props) => props.direction === 'left' && '10px'};
 	right: ${(props) => props.direction === 'right' && '10px'};
 	margin: auto;
@@ -35,6 +36,10 @@ const Wrapper = styled.div`
 	height: 100%;
 	display: flex;
 	align-items: center;
+	transition: all 1.5s ease; // slider animation
+	transform: translateX(
+		${(props) => props.slideIndex * -100}vw
+	); // slideIndex * -100vw만큼 이동
 `;
 
 const Slide = styled.div`
@@ -42,7 +47,7 @@ const Slide = styled.div`
 	height: 100%;
 	display: flex;
 	align-items: center;
-	background-color: #${(props) => props.bg};
+	background-color: #${(props) => props.bg}; // slide 배경색 props로 전달
 `;
 
 const ImgContainer = styled.div`
@@ -79,14 +84,22 @@ const Button = styled.button`
 const Slider = () => {
 	const [slideIndex, setSlideIndex] = useState(0);
 
-	const handleClick = (direction) => {};
+	const handleClick = (direction) => {
+		if (direction === 'left') {
+			// left 버튼 클릭 시 현재 slideIndex가 0이면 set to 마지막 아이템 인덱스
+			setSlideIndex(slideIndex > 0 ? slideIndex - 1 : sliderItems.length - 1);
+		} else {
+			// right 버튼 클릭 시 현재 slideIndex가 마지막이면 set to 0
+			setSlideIndex(slideIndex < sliderItems.length - 1 ? slideIndex + 1 : 0);
+		}
+	};
 
 	return (
 		<Container>
 			<Arrow direction="left" onClick={() => handleClick('left')}>
 				<MdArrowBackIos />
 			</Arrow>
-			<Wrapper>
+			<Wrapper slideIndex={slideIndex}>
 				{sliderItems.map((item) => (
 					<Slide bg={item.bg}>
 						<ImgContainer>
