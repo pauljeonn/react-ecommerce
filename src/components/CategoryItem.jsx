@@ -3,9 +3,10 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 	flex: 1;
-	margin: 5px;
+	margin: 0 10px;
 	height: 60vh;
 	position: relative;
+	cursor: pointer;
 `;
 
 const Img = styled.img`

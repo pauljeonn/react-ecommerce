@@ -39,3 +39,38 @@ export const categories = [
 		title: 'HOODIES',
 	},
 ];
+
+export const products = [
+	{
+		id: 1,
+		img: 'https://cdn.shopify.com/s/files/1/1003/3354/products/Front_ef4277d1-87e1-43b2-aeb0-4532dc415efb_360x.jpg?v=1634857106',
+	},
+	{
+		id: 2,
+		img: 'https://cdn.shopify.com/s/files/1/1003/3354/products/Front_584687a7-86cf-49a7-8507-0261cf929061_360x.jpg?v=1618542730',
+	},
+	{
+		id: 3,
+		img: 'https://cdn.shopify.com/s/files/1/1003/3354/products/front_9fba8e83-ca37-4187-83bc-0319250d152f_360x.jpg?v=1634754375',
+	},
+	{
+		id: 4,
+		img: 'https://cdn.shopify.com/s/files/1/1003/3354/products/back_373191e7-241b-4342-acab-78fa81cf0ed1_360x.jpg?v=1634860600',
+	},
+	{
+		id: 5,
+		img: 'https://cdn.shopify.com/s/files/1/1003/3354/products/Front_aa0ae103-c6bd-4835-8997-de50e8a14b07_360x.jpg?v=1618542338',
+	},
+	{
+		id: 6,
+		img: 'https://cdn.shopify.com/s/files/1/1003/3354/products/Front_95d3bbd8-af1c-414f-a55d-04d1edc5f599_360x.jpg?v=1618542735',
+	},
+	{
+		id: 7,
+		img: 'https://cdn.shopify.com/s/files/1/1003/3354/products/Front_d9bddb10-64b3-473b-8baf-63eed33789e8_360x.jpg?v=1634754356',
+	},
+	{
+		id: 8,
+		img: 'https://cdn.shopify.com/s/files/1/1003/3354/products/Front_bbb90343-a91c-4cc0-8a48-6b8a8a3a1a41_360x.jpg?v=1618542629',
+	},
+];
