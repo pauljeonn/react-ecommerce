@@ -6,7 +6,7 @@ import { FiTwitter } from 'react-icons/fi';
 
 const Container = styled.div`
 	margin-top: 80px;
-	margin-bottom: 40px;
+	padding: 40px 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -70,7 +70,6 @@ const MenuItem = styled.div`
 const Footer = () => {
 	return (
 		<Container>
-			<FooterLine />
 			<FooterContainer>
 				<Left>
 					<Logo>
