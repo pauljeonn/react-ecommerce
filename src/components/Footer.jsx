@@ -5,9 +5,25 @@ import { FiInstagram } from 'react-icons/fi';
 import { FiTwitter } from 'react-icons/fi';
 
 const Container = styled.div`
+	margin-top: 80px;
+	margin-bottom: 40px;
 	display: flex;
-	margin-top: 40px;
-	margin-bottom: 40px; ;
+	flex-direction: column;
+	align-items: center;
+`;
+
+const FooterLine = styled.div`
+	width: 80%;
+	height: 1px;
+	background-color: lightgray;
+	display: flex;
+	margin-bottom: 20px;
+`;
+
+const FooterContainer = styled.div`
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
 `;
 
 const Left = styled.div`
@@ -15,7 +31,6 @@ const Left = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: left;
-	margin-left: 45px;
 	padding-top: 5px;
 `;
 
@@ -24,14 +39,13 @@ const Logo = styled.div`
 `;
 
 const SocialContainer = styled.div`
-	margin-top: 20px;
+	margin-top: 10px;
 	display: flex;
-	justify-content: left;
 `;
 
 const SocialIcon = styled.div`
-	margin-right: 20px;
-	font-size: 20px;
+	margin-right: 10px;
+	font-size: 18px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -41,7 +55,6 @@ const SocialIcon = styled.div`
 const Right = styled.div`
 	flex: 1;
 	margin-top: 10px;
-	margin-right: 45px;
 `;
 
 const MenuContainer = styled.div`
@@ -57,30 +70,34 @@ const MenuItem = styled.div`
 const Footer = () => {
 	return (
 		<Container>
-			<Left>
-				<Logo>
-					<h1>CEPEC</h1>
-				</Logo>
-				<SocialContainer>
-					<SocialIcon>
-						<FiFacebook />
-					</SocialIcon>
-					<SocialIcon>
-						<FiInstagram />
-					</SocialIcon>
-					<SocialIcon>
-						<FiTwitter />
-					</SocialIcon>
-				</SocialContainer>
-			</Left>
-			<Right>
-				<MenuContainer>
-					<MenuItem>CONTACT</MenuItem>
-					<MenuItem>CLIENT SERVICES</MenuItem>
-					<MenuItem>LEGAL NOTICES</MenuItem>
-					<MenuItem>SOCIAL</MenuItem>
-				</MenuContainer>
-			</Right>
+			<FooterLine />
+			<FooterContainer>
+				<Left>
+					<Logo>
+						<h1>CEPEC</h1>
+					</Logo>
+					<SocialContainer>
+						<SocialIcon>
+							<FiTwitter />
+						</SocialIcon>
+						<SocialIcon>
+							<FiFacebook />
+						</SocialIcon>
+
+						<SocialIcon>
+							<FiInstagram />
+						</SocialIcon>
+					</SocialContainer>
+				</Left>
+				<Right>
+					<MenuContainer>
+						<MenuItem>CONTACT</MenuItem>
+						<MenuItem>CLIENT SERVICES</MenuItem>
+						<MenuItem>LEGAL NOTICES</MenuItem>
+						<MenuItem>SOCIAL</MenuItem>
+					</MenuContainer>
+				</Right>
+			</FooterContainer>
 		</Container>
 	);
 };
