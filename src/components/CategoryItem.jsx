@@ -13,7 +13,7 @@ const Img = styled.img`
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	opacity: 0.9;
+	opacity: 0.8;
 `;
 
 const Info = styled.div`
@@ -23,13 +23,31 @@ const Info = styled.div`
 	width: 100%;
 	height: 100%;
 	display: flex;
-	/* align-items: center; */
-	/* justify-content: center; */
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 `;
 
 const Title = styled.h1`
 	margin-top: 5px;
 	margin-left: 5px;
+	color: black;
+`;
+
+const Button = styled.button`
+	margin-top: 5px;
+	margin-left: 5px;
+	width: 100px;
+	height: 45px;
+	font-size: 16px;
+	background-color: white;
+	border: 2px solid black;
+	cursor: pointer;
+
+	&:hover {
+		background-color: black;
+		color: white;
+	}
 `;
 
 const CategoryItem = ({ item }) => {
@@ -38,6 +56,7 @@ const CategoryItem = ({ item }) => {
 			<Img src={item.img} />
 			<Info>
 				<Title>{item.title}</Title>
+				<Button>SHOP</Button>
 			</Info>
 		</Container>
 	);

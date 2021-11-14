@@ -74,11 +74,21 @@ const Desc = styled.p`
 	font-size: 20px;
 `;
 const Button = styled.button`
+	width: 180px;
+	height: 50px;
 	padding: 10px;
 	font-size: 20px;
-	background-color: white;
-	border: 1px solid gray;
+	background-color: black;
+	color: white;
+	border: 2px solid black;
+
 	cursor: pointer;
+
+	&:hover {
+		background-color: transparent;
+		border: 2px solid black;
+		color: black;
+	}
 `;
 
 const Slider = () => {

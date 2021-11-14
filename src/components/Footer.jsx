@@ -73,7 +73,7 @@ const Footer = () => {
 			<FooterContainer>
 				<Left>
 					<Logo>
-						<h1>CEPEC</h1>
+						<h1>PAULJEON</h1>
 					</Logo>
 					<SocialContainer>
 						<SocialIcon>
@@ -82,7 +82,6 @@ const Footer = () => {
 						<SocialIcon>
 							<FiFacebook />
 						</SocialIcon>
-
 						<SocialIcon>
 							<FiInstagram />
 						</SocialIcon>

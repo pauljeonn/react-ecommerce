@@ -69,7 +69,7 @@ const Navbar = () => {
 					</SearchContainer>
 				</Left>
 				<Center>
-					<Logo>CEPEC</Logo>
+					<Logo>PAULJEON</Logo>
 				</Center>
 				<Right>
 					<MenuItem>REGISTER</MenuItem>
