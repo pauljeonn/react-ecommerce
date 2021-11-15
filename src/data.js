@@ -27,20 +27,23 @@ export const categories = [
 		id: 3,
 		img: 'https://images.asos-media.com/products/levis-sunset-relaxed-fit-cord-collar-denim-trucker-jacket-in-beige/24370580-3?$n_640w$&wid=513&fit=constrain',
 		title: 'JACKETS',
+		category: 'jackets',
 	},
 	{
 		id: 2,
 		img: 'https://images.unsplash.com/photo-1587065458592-de212e88166b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1287&q=80',
 		title: 'SHIRTS',
+		category: 'shirts',
 	},
 	{
 		id: 1,
 		img: 'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//98/MTA-5098363/okechuku_okechuku_sweater_hoodie_polos_pria_model_korea_jumper_korean_style_full07_ol98ysre.jpg',
 		title: 'HOODIES',
+		category: 'hoodies',
 	},
 ];
 
-export const products = [
+export const popularProducts = [
 	{
 		id: 1,
 		img: 'https://cdn.shopify.com/s/files/1/1003/3354/products/Front_ef4277d1-87e1-43b2-aeb0-4532dc415efb_360x.jpg?v=1634857106',

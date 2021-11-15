@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
 import { FiShoppingCart } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
 	height: 60px;
@@ -69,7 +70,9 @@ const Navbar = () => {
 					</SearchContainer>
 				</Left>
 				<Center>
-					<Logo>PAULJEON</Logo>
+					<Link to={'/'} style={{ textDecoration: 'none', color: 'black' }}>
+						<Logo>JEONN</Logo>
+					</Link>
 				</Center>
 				<Right>
 					<MenuItem>REGISTER</MenuItem>

@@ -12,14 +12,6 @@ const Container = styled.div`
 	align-items: center;
 `;
 
-const FooterLine = styled.div`
-	width: 80%;
-	height: 1px;
-	background-color: lightgray;
-	display: flex;
-	margin-bottom: 20px;
-`;
-
 const FooterContainer = styled.div`
 	width: 80%;
 	display: flex;
@@ -73,7 +65,7 @@ const Footer = () => {
 			<FooterContainer>
 				<Left>
 					<Logo>
-						<h1>PAULJEON</h1>
+						<h1>JEONN</h1>
 					</Logo>
 					<SocialContainer>
 						<SocialIcon>

@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import ProductList from '../components/ProductList';
 
-const Container = styled.div``;
+const Container = styled.div`
+	width: 100%;
+`;
 
 const Title = styled.h1`
 	margin: 40px;
@@ -25,14 +28,26 @@ const Select = styled.select`
 const Option = styled.option``;
 
 const ProductListPage = () => {
+	const location = useLocation();
+	const category = location.pathname.split('/')[2];
+	const [filters, setFilter] = useState({});
+	const [sort, setSort] = useState('newest');
+
+	const handleFilters = (e) => {
+		setFilter({
+			...filters, // to contain both filters
+			[e.target.name]: e.target.value,
+		});
+	};
+
 	return (
 		<Container>
 			<Navbar />
-			<Title>Shirts</Title>
+			<Title>{category.charAt(0).toUpperCase() + category.slice(1)}</Title>
 			<FilterContainer>
 				<Filter>
-					Filter Products:{' '}
-					<Select>
+					Filter Products:
+					<Select name="color" onChange={handleFilters}>
 						<Option disabled selected>
 							Color
 						</Option>
@@ -40,7 +55,7 @@ const ProductListPage = () => {
 						<Option>White</Option>
 						<Option>Brown</Option>
 					</Select>
-					<Select>
+					<Select name="size" onChange={handleFilters}>
 						<Option disabled selected>
 							Size
 						</Option>
@@ -53,14 +68,14 @@ const ProductListPage = () => {
 				</Filter>
 				<Filter>
 					Sort Products
-					<Select>
-						<Option selected>최신순</Option>
-						<Option>가격 낮은순</Option>
-						<Option>가격 높은순</Option>
+					<Select onChange={(e) => setSort(e.target.value)}>
+						<Option value="newest">최신순</Option>
+						<Option value="price-asc">가격 낮은순</Option>
+						<Option value="price-desc">가격 높은순</Option>
 					</Select>
 				</Filter>
 			</FilterContainer>
-			<ProductList />
+			<ProductList category={category} filters={filters} sort={sort} />
 			<Footer />
 		</Container>
 	);
