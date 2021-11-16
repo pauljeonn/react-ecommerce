@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
 import { FiShoppingCart } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const Info = styled.div`
 	width: 100%;
@@ -62,9 +63,11 @@ const Product = ({ item }) => {
 		<Container>
 			<Image src={item.img} />
 			<Info>
-				<Icon>
-					<FiSearch style={{ color: 'gray', fontSize: '20' }} />
-				</Icon>
+				<Link to={`/product/${item._id}`}>
+					<Icon>
+						<FiSearch style={{ color: 'gray', fontSize: '20' }} />
+					</Icon>
+				</Link>
 				<Icon>
 					<FiShoppingCart style={{ color: 'gray', fontSize: '20' }} />
 				</Icon>
