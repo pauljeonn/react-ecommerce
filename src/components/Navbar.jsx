@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
 import { FiShoppingCart } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Container = styled.div`
 	height: 60px;
@@ -58,7 +59,28 @@ const MenuItem = styled.div`
 	margin-left: 25px;
 `;
 
+const CartContainer = styled.div`
+	position: relative;
+`;
+
+const Badge = styled.div`
+	width: 16px;
+	height: 16px;
+	background-color: red;
+	color: white;
+	border-radius: 50%;
+	position: absolute;
+	top: -35%;
+	right: -50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 9px;
+`;
+
 const Navbar = () => {
+	const quantity = useSelector((state) => state.cart.quantity);
+
 	return (
 		<Container>
 			<Wrapper>
@@ -77,9 +99,14 @@ const Navbar = () => {
 				<Right>
 					<MenuItem>REGISTER</MenuItem>
 					<MenuItem>SIGN IN</MenuItem>
-					<MenuItem>
-						<FiShoppingCart />
-					</MenuItem>
+					<Link to="/cart">
+						<MenuItem>
+							<CartContainer>
+								<Badge>{quantity}</Badge>
+								<FiShoppingCart />
+							</CartContainer>
+						</MenuItem>
+					</Link>
 				</Right>
 			</Wrapper>
 		</Container>
