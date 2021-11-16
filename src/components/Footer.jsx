@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { FiFacebook } from 'react-icons/fi';
 import { FiInstagram } from 'react-icons/fi';
 import { FiTwitter } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
 	margin-top: 80px;
@@ -64,9 +65,11 @@ const Footer = () => {
 		<Container>
 			<FooterContainer>
 				<Left>
-					<Logo>
-						<h1>JEONN</h1>
-					</Logo>
+					<Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
+						<Logo>
+							<h1>JEONN</h1>
+						</Logo>
+					</Link>
 					<SocialContainer>
 						<SocialIcon>
 							<FiTwitter />

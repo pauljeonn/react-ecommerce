@@ -66,8 +66,9 @@ const CartContainer = styled.div`
 const Badge = styled.div`
 	width: 16px;
 	height: 16px;
-	background-color: red;
-	color: white;
+	background-color: ${(props) =>
+		props.quantity === 0 ? 'transparent' : 'red'};
+	color: ${(props) => (props.quantity === 0 ? 'transparent' : 'white')};
 	border-radius: 50%;
 	position: absolute;
 	top: -35%;
@@ -102,7 +103,7 @@ const Navbar = () => {
 					<Link to="/cart">
 						<MenuItem>
 							<CartContainer>
-								<Badge>{quantity}</Badge>
+								<Badge quantity={quantity}>{quantity}</Badge>
 								<FiShoppingCart />
 							</CartContainer>
 						</MenuItem>
