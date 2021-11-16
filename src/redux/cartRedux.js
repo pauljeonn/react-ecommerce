@@ -11,7 +11,7 @@ const cartSlice = createSlice({
 		addProduct: (state, action) => {
 			// mutating the state is only possible with redux toolkit!
 			state.quantity += 1;
-			state.products.push(action.payload.product);
+			state.products.push(action.payload);
 			state.total += action.payload.price * action.payload.quantity;
 		},
 	},

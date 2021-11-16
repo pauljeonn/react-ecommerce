@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import { FiPlus } from 'react-icons/fi';
 import { FiMinus } from 'react-icons/fi';
+import { useSelector } from 'react-redux';
 
 const Container = styled.div``;
 
@@ -132,6 +133,8 @@ const SummaryItemPrice = styled.div`
 `;
 
 const CartPage = () => {
+	const cart = useSelector((state) => state.cart);
+
 	return (
 		<Container>
 			<Navbar />
@@ -139,40 +142,25 @@ const CartPage = () => {
 				<Left>
 					<LeftTitle>YOUR SHOPPING BAG</LeftTitle>
 					<Info>
-						<Product>
-							<ProductDetail>
-								<Image src="https://cdn.shopify.com/s/files/1/1003/3354/products/Front_cb50b5f0-e1e2-4f4a-8ada-633d640cd761_x1800.jpg?v=1630448682" />
-								<Details>
-									<ProductName>PULLOVER HOODIE</ProductName>
-									<ProductPrice>KRW 80,000</ProductPrice>
-									<ProductSize>SIZE: M</ProductSize>
-									<ProductColor>COLOR: GREEN</ProductColor>
-									<ProductAmountContainer>
-										<FiPlus />
-										<ProductAmount>1</ProductAmount>
-										<FiMinus />
-									</ProductAmountContainer>
-								</Details>
-							</ProductDetail>
-							<Hr />
-						</Product>
-						<Product>
-							<ProductDetail>
-								<Image src="https://cdn.shopify.com/s/files/1/1003/3354/products/Front_9d2a950c-e04e-4ff7-9a25-97a2a9eb0cc1_360x.jpg?v=1630448714" />
-								<Details>
-									<ProductName>TRACKPANTS</ProductName>
-									<ProductPrice>KRW 60,000</ProductPrice>
-									<ProductSize>SIZE: M</ProductSize>
-									<ProductColor>COLOR: YELLOW</ProductColor>
-									<ProductAmountContainer>
-										<FiPlus />
-										<ProductAmount>1</ProductAmount>
-										<FiMinus />
-									</ProductAmountContainer>
-								</Details>
-							</ProductDetail>
-							<Hr />
-						</Product>
+						{cart.products.map((product) => (
+							<Product key={product._id}>
+								<ProductDetail>
+									<Image src={product.img} />
+									<Details>
+										<ProductName>{product.title}</ProductName>
+										<ProductPrice>{product.price}</ProductPrice>
+										<ProductSize>{`SIZE: ${product.size}`}</ProductSize>
+										<ProductColor>{`COLOR: ${product.color}`}</ProductColor>
+										<ProductAmountContainer>
+											<FiPlus />
+											<ProductAmount>{product.quantity}</ProductAmount>
+											<FiMinus />
+										</ProductAmountContainer>
+									</Details>
+								</ProductDetail>
+								<Hr />
+							</Product>
+						))}
 					</Info>
 				</Left>
 				<Right>
@@ -180,7 +168,7 @@ const CartPage = () => {
 					<Summary>
 						<SummaryItem>
 							<SummaryItemText>SUBTOTAL</SummaryItemText>
-							<SummaryItemPrice>KRW 140,000</SummaryItemPrice>
+							<SummaryItemPrice>{`KRW ${cart.total.toLocaleString()}`}</SummaryItemPrice>
 						</SummaryItem>
 						<SummaryItem>
 							<SummaryItemText>SHIPPING</SummaryItemText>
@@ -189,7 +177,9 @@ const CartPage = () => {
 						<Hr />
 						<SummaryItem>
 							<SummaryItemText type="total">TOTAL</SummaryItemText>
-							<SummaryItemPrice type="total">KRW 170,000</SummaryItemPrice>
+							<SummaryItemPrice type="total">{`KRW ${(
+								cart.total + 30000
+							).toLocaleString()}`}</SummaryItemPrice>
 						</SummaryItem>
 					</Summary>
 					<RightButton type="filled">CHECKOUT NOW</RightButton>

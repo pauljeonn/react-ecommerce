@@ -52,7 +52,6 @@ const ProductList = ({ category, filters, sort }) => {
 			setFilteredProducts((prev) =>
 				[...prev].sort((a, b) => a.released - b.released)
 			);
-			console.log(filteredProducts);
 		} else if (sort === 'price-asc') {
 			setFilteredProducts((prev) =>
 				[...prev].sort((a, b) => a.price - b.price)
@@ -69,11 +68,11 @@ const ProductList = ({ category, filters, sort }) => {
 			<Wrapper>
 				{category
 					? filteredProducts.map((item) => (
-							<Product key={item.id} item={item} />
+							<Product key={item._id} item={item} />
 					  ))
 					: products
 							.slice(0, 8)
-							.map((item) => <Product item={item} key={item.id} />)}
+							.map((item) => <Product key={item._id} item={item} />)}
 			</Wrapper>
 		</Container>
 	);
