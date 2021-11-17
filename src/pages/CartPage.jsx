@@ -148,7 +148,9 @@ const CartPage = () => {
 									<Image src={product.img} />
 									<Details>
 										<ProductName>{product.title}</ProductName>
-										<ProductPrice>{product.price}</ProductPrice>
+										<ProductPrice>
+											{product.price.toLocaleString() + ` KRW`}
+										</ProductPrice>
 										<ProductSize>{`SIZE: ${product.size}`}</ProductSize>
 										<ProductColor>{`COLOR: ${product.color}`}</ProductColor>
 										<ProductAmountContainer>
@@ -168,18 +170,22 @@ const CartPage = () => {
 					<Summary>
 						<SummaryItem>
 							<SummaryItemText>SUBTOTAL</SummaryItemText>
-							<SummaryItemPrice>{`KRW ${cart.total.toLocaleString()}`}</SummaryItemPrice>
+							<SummaryItemPrice>{`${cart.total.toLocaleString()} KRW`}</SummaryItemPrice>
 						</SummaryItem>
 						<SummaryItem>
 							<SummaryItemText>SHIPPING</SummaryItemText>
-							<SummaryItemPrice>KRW 30,000</SummaryItemPrice>
+							<SummaryItemPrice>
+								{cart.total === 0 ? '0 KRW' : '30,000 KRW'}
+							</SummaryItemPrice>
 						</SummaryItem>
 						<Hr />
 						<SummaryItem>
 							<SummaryItemText type="total">TOTAL</SummaryItemText>
-							<SummaryItemPrice type="total">{`KRW ${(
-								cart.total + 30000
-							).toLocaleString()}`}</SummaryItemPrice>
+							<SummaryItemPrice type="total">
+								{cart.total === 0
+									? '0 KRW'
+									: `${(cart.total + 30000).toLocaleString()} KRW`}
+							</SummaryItemPrice>
 						</SummaryItem>
 					</Summary>
 					<RightButton type="filled">CHECKOUT NOW</RightButton>

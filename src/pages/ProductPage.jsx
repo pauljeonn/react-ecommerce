@@ -132,7 +132,9 @@ const ProductPage = () => {
 				<InfoContainer>
 					<Title>{product.title}</Title>
 					<Desc>{product.desc}</Desc>
-					<Price>{product.price}</Price>
+					<Price>
+						{product.price && product.price.toLocaleString() + ` KRW`}
+					</Price>
 					<FilterContainer>
 						<Filter>
 							<FilterTitle>COLOR</FilterTitle>

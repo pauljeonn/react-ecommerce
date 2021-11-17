@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Footer from '../components/Footer';
 
 const Container = styled.div`
 	width: 100vw;
@@ -59,13 +61,13 @@ const Button = styled.button`
 	cursor: pointer;
 `;
 
-const LinkContainer = styled.div`
+const RedirectContainer = styled.div`
 	margin-top: 50px;
 	display: flex;
 	flex-direction: column;
 `;
 
-const Link = styled.a`
+const Redirect = styled.a`
 	margin-top: 5px;
 	font-size: 15px;
 	font-weight: 300;
@@ -73,7 +75,6 @@ const Link = styled.a`
 
 	&:hover {
 		color: teal;
-		font-weight: 400;
 	}
 `;
 
@@ -89,12 +90,18 @@ const LoginPage = () => {
 					<Input placeholder="email address" />
 					<Input placeholder="password" />
 					<Button>SIGN IN</Button>
-					<LinkContainer>
-						<Link>Forgot password?</Link>
-						<Link>Create a new account?</Link>
-					</LinkContainer>
+					<RedirectContainer>
+						<Redirect>Forgot password?</Redirect>
+						<Link
+							to="/register"
+							style={{ textDecoration: 'none', color: 'black' }}
+						>
+							<Redirect>Create a new account?</Redirect>
+						</Link>
+					</RedirectContainer>
 				</Form>
 			</Wrapper>
+			<Footer />
 		</Container>
 	);
 };
