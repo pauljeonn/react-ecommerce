@@ -1,0 +1,3 @@
+[submodule "react-ecommerce"]
+	path = react-ecommerce
+	url = https://github.com/pauljeonn/api-ecommerce
