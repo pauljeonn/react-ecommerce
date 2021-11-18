@@ -1,7 +1,7 @@
 export const sliderItems = [
 	{
 		id: 1,
-		img: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0d4b8b86-ce06-4b19-863c-b3a0d6ebfab1/d8gxi1d-1e73c77d-7682-49c2-b677-60136aa7ea1c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzBkNGI4Yjg2LWNlMDYtNGIxOS04NjNjLWIzYTBkNmViZmFiMVwvZDhneGkxZC0xZTczYzc3ZC03NjgyLTQ5YzItYjY3Ny02MDEzNmFhN2VhMWMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.HEKKtQbvQJtjzzk5vw_ZUcb4eVQvLzD7PD22zoiu3Bo',
+		img: 'https://firebasestorage.googleapis.com/v0/b/portfolio-pauljeon.appspot.com/o/ecommerce-1.png?alt=media&token=8651b8b6-0268-43dc-a024-95d0bf109a33',
 		title: '21 F/W COLLECTION',
 		desc: '모던하게 재해석한 겨울 컬렉션',
 		bg: 'ffd0c6',
