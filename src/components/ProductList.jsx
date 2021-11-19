@@ -4,13 +4,15 @@ import Product from './Product';
 import { publicRequest } from '../requestMethods';
 
 const Container = styled.div`
-	margin-top: 10px;
+	width: 100%;
+	margin-top: 5px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 `;
 
 const Wrapper = styled.div`
+	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
 `;
@@ -33,8 +35,7 @@ const ProductList = ({ category, filters, sort, isHome }) => {
 	}, [category]);
 
 	useEffect(() => {
-		category && // if there is category
-			// set filtered products
+		!isHome &&
 			setFilteredProducts(
 				products.filter((item) =>
 					Object.entries(filters).every(([key, value]) =>
@@ -48,7 +49,7 @@ const ProductList = ({ category, filters, sort, isHome }) => {
 	useEffect(() => {
 		if (sort === 'newest') {
 			setFilteredProducts((prev) =>
-				[...prev].sort((a, b) => a.released - b.released)
+				[...prev].sort((a, b) => new Date(b.released) - new Date(a.released))
 			);
 		} else if (sort === 'price-asc') {
 			setFilteredProducts((prev) =>
@@ -72,7 +73,9 @@ const ProductList = ({ category, filters, sort, isHome }) => {
 					? products
 							.slice(0, 8)
 							.map((item) => <Product key={item._id} item={item} />)
-					: products.map((item) => <Product key={item._id} item={item} />)}
+					: filteredProducts.map((item) => (
+							<Product key={item._id} item={item} />
+					  ))}
 			</Wrapper>
 		</Container>
 	);

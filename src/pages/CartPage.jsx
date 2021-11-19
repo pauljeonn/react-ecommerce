@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import { FiPlus } from 'react-icons/fi';
 import { FiMinus } from 'react-icons/fi';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
 	margin-top: 100px;
@@ -136,6 +137,15 @@ const SummaryItemPrice = styled.div`
 
 const CartPage = () => {
 	const cart = useSelector((state) => state.cart);
+	const navigate = useNavigate();
+
+	const goBack = () => {
+		navigate('/products');
+	};
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<Container>
@@ -191,7 +201,7 @@ const CartPage = () => {
 						</SummaryItem>
 					</Summary>
 					<RightButton type="filled">CHECKOUT NOW</RightButton>
-					<RightButton>CONTINUE SHOPPING</RightButton>
+					<RightButton onClick={goBack}>CONTINUE SHOPPING</RightButton>
 				</Right>
 			</Wrapper>
 			<Footer />

@@ -122,6 +122,10 @@ const ProductPage = () => {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
+
+	useEffect(() => {
 		const getProduct = async () => {
 			try {
 				const res = await publicRequest.get('/products/find/' + id);
@@ -138,9 +142,7 @@ const ProductPage = () => {
 	useEffect(() => {}, [size]);
 
 	const handleClick = () => {
-		if (!size) {
-			console.log('Choose color and size!');
-		} else {
+		if (size) {
 			dispatch(
 				// update cart
 				addProduct({ ...product, quantity, color, size })

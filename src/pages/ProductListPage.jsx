@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import Footer from '../components/Footer';
@@ -36,11 +36,19 @@ const ProductListPage = () => {
 	const [sort, setSort] = useState('newest');
 
 	const handleFilters = (e) => {
-		setFilter({
-			...filters, // to contain both filters
-			[e.target.name]: e.target.value,
-		});
+		if (e.target.value === 'All') {
+			setFilter({});
+		} else {
+			setFilter({
+				...filters, // to contain both filters
+				[e.target.name]: e.target.value,
+			});
+		}
 	};
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, []);
 
 	return (
 		<Container>
@@ -50,27 +58,40 @@ const ProductListPage = () => {
 			</Title>
 			<FilterContainer>
 				<Filter>
-					Filter Products:
+					Filter Products
 					<Select name="color" onChange={handleFilters}>
 						<Option disabled selected>
-							Color
+							색상
 						</Option>
+						<Option>All</Option>
 						<Option>Black</Option>
+						<Option>Gray</Option>
 						<Option>White</Option>
+						<Option>Ivory</Option>
+						<Option>Navy</Option>
+						<Option>Green</Option>
+						<Option>Red</Option>
 						<Option>Brown</Option>
+						<Option>Yellow</Option>
 					</Select>
 					<Select name="size" onChange={handleFilters}>
 						<Option disabled selected>
-							Size
+							사이즈
 						</Option>
+						<Option>All</Option>
+						<Option>XS</Option>
 						<Option>S</Option>
 						<Option>M</Option>
 						<Option>L</Option>
+						<Option>XL</Option>
 					</Select>
 				</Filter>
 				<Filter>
 					Sort Products
 					<Select onChange={(e) => setSort(e.target.value)}>
+						<Option selected disabled>
+							정렬
+						</Option>
 						<Option value="newest">최신순</Option>
 						<Option value="price-asc">가격 낮은순</Option>
 						<Option value="price-desc">가격 높은순</Option>
