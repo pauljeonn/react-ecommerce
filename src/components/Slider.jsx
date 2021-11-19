@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import { MdArrowBackIos } from 'react-icons/md';
 import { MdArrowForwardIos } from 'react-icons/md';
 import { sliderItems } from '../data';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
+	margin-top: 100px;
 	width: 100%;
-	height: calc(100vh - 90px);
+	height: 70vh;
 	display: flex;
-	background-color: #ffd0c6;
 	position: relative;
 	overflow-x: hidden;
 `;
@@ -59,15 +60,16 @@ const ImgContainer = styled.div`
 `;
 
 const Image = styled.img`
-	height: 100%;
+	height: 90%;
 `;
 
 const InfoContainer = styled.div`
 	flex: 1;
+	padding-right: 3%;
 `;
 
 const Title = styled.h1`
-	font-size: 80px;
+	font-size: 75px;
 `;
 const Desc = styled.p`
 	margin: 50px 0;
@@ -118,7 +120,9 @@ const Slider = () => {
 						<InfoContainer>
 							<Title>{item.title}</Title>
 							<Desc>{item.desc}</Desc>
-							<Button>SHOP NOW</Button>
+							<Link to="/products">
+								<Button>SHOP NOW</Button>
+							</Link>
 						</InfoContainer>
 					</Slide>
 				))}

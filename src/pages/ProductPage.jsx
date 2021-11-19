@@ -7,7 +7,9 @@ import { publicRequest } from '../requestMethods';
 import { addProduct } from '../redux/cartRedux';
 import { useDispatch } from 'react-redux';
 
-const Container = styled.div``;
+const Container = styled.div`
+	margin-top: 100px;
+`;
 
 const Wrapper = styled.div`
 	display: flex;
@@ -67,22 +69,30 @@ const FilterColor = styled.select`
 
 const FilterColorOption = styled.option``;
 
-const FilterSize = styled.div`
-	display: flex;
-`;
+// const FilterSize = styled.div`
+// 	display: flex;
+// `;
 
-const FilterSizeOption = styled.div`
-	width: 30px;
+// const FilterSizeOption = styled.div`
+// 	width: 30px;
+// 	height: 25px;
+// 	border: 1px solid lightgray;
+// 	margin-right: 10px;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	font-size: 14px;
+// 	font-weight: 300;
+// 	cursor: pointer;
+// `;
+
+const FilterSize = styled.select`
+	width: 200px;
 	height: 25px;
 	border: 1px solid lightgray;
-	margin-right: 10px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 14px;
-	font-weight: 300;
-	cursor: pointer;
 `;
+
+const FilterSizeOption = styled.option``;
 
 const AddContainer = styled.div``;
 
@@ -90,10 +100,16 @@ const AddButton = styled.button`
 	width: 200px;
 	height: 35px;
 	border: none;
-	background-color: black;
+	background-color: ${(props) => (props.size ? 'black' : 'lightgray')};
 	color: white;
 	font-weight: 300;
 	cursor: pointer;
+`;
+
+const Warning = styled.p`
+	color: ${(props) => (props.size ? 'transparent' : 'red')};
+	font-size: 14px;
+	margin-top: 5px;
 `;
 
 const ProductPage = () => {
@@ -110,16 +126,30 @@ const ProductPage = () => {
 			try {
 				const res = await publicRequest.get('/products/find/' + id);
 				setProduct(res.data);
+				// 우선 첫번째 색상만 옵션으로 주기
+				setColor(
+					product.color[0].charAt(0).toUpperCase() + product.color[0].slice(1)
+				);
 			} catch {}
 		};
 		getProduct();
 	}, [id, product]);
 
+	useEffect(() => {}, [size]);
+
 	const handleClick = () => {
-		dispatch(
-			// update cart
-			addProduct({ ...product, quantity, color, size })
-		);
+		if (!size) {
+			console.log('Choose color and size!');
+		} else {
+			dispatch(
+				// update cart
+				addProduct({ ...product, quantity, color, size })
+			);
+		}
+	};
+
+	const handleClickSize = (e) => {
+		console.log(e);
 	};
 
 	return (
@@ -139,28 +169,46 @@ const ProductPage = () => {
 						<Filter>
 							<FilterTitle>COLOR</FilterTitle>
 							<FilterColor onChange={(e) => setColor(e.target.value)}>
-								{product.color &&
+								<FilterColorOption selected>{color}</FilterColorOption>
+								{/* {product.color &&
 									product.color.map((c) => (
 										<FilterColorOption key={c}>
 											{c.charAt(0).toUpperCase() + c.slice(1)}
 										</FilterColorOption>
-									))}
+									))} */}
 							</FilterColor>
 						</Filter>
 						<Filter>
 							<FilterTitle>SIZE</FilterTitle>
-							<FilterSize>
+							{/* {product.size &&
+									product.size.map((s) => (
+										<FilterSizeOption
+											key={s}
+											buttonColor={buttonColor}
+											onClick={() => handleClickSize(s)}
+											selectedSize={s}
+										>
+											{s.toUpperCase()}
+										</FilterSizeOption>
+									))} */}
+							<FilterSize onChange={(e) => setSize(e.target.value)}>
+								<FilterSizeOption selected disabled>
+									Select Size
+								</FilterSizeOption>
 								{product.size &&
 									product.size.map((s) => (
-										<FilterSizeOption key={s} onClick={() => setSize(s)}>
-											{s}
+										<FilterSizeOption key={s}>
+											{s.toUpperCase()}
 										</FilterSizeOption>
 									))}
 							</FilterSize>
 						</Filter>
 					</FilterContainer>
 					<AddContainer>
-						<AddButton onClick={handleClick}>ADD TO CART</AddButton>
+						<AddButton size={size} onClick={handleClick}>
+							ADD TO CART
+						</AddButton>
+						<Warning size={size}>사이즈를 선택해주세요.</Warning>
 					</AddContainer>
 				</InfoContainer>
 			</Wrapper>

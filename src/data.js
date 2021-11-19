@@ -1,23 +1,23 @@
 export const sliderItems = [
 	{
 		id: 1,
-		img: 'https://firebasestorage.googleapis.com/v0/b/portfolio-pauljeon.appspot.com/o/ecommerce-1.png?alt=media&token=8651b8b6-0268-43dc-a024-95d0bf109a33',
+		img: 'https://freepngimg.com/save/26650-mens-fashion/600x850',
 		title: '21 F/W COLLECTION',
 		desc: '모던하게 재해석한 겨울 컬렉션',
-		bg: 'ffd0c6',
+		bg: 'fad2c6',
 	},
 	{
 		id: 2,
-		img: 'https://www.pngarts.com/files/2/Model-Transparent-Background-PNG.png',
-		title: 'SUMMER SALE',
-		desc: 'GET 50% OFF NOW!',
+		img: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6a542645-fe7e-4bfd-aa63-e289c16c5ea7/daq99sj-401f1750-ba45-4c02-bb28-00a3e94e4f6e.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzZhNTQyNjQ1LWZlN2UtNGJmZC1hYTYzLWUyODljMTZjNWVhN1wvZGFxOTlzai00MDFmMTc1MC1iYTQ1LTRjMDItYmIyOC0wMGEzZTk0ZTRmNmUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.v1fj65lKtpbZUW87eGUlVN5_3v7uwq5_I05zs2fUoa0',
+		title: 'OUR BEST SELLERS',
+		desc: '시즌에 구애받지 않은 인기 아이템들을 만나보세요',
 		bg: 'fff9db',
 	},
 	{
 		id: 3,
 		img: 'https://www.freeiconspng.com/uploads/model-png-5-by-hotnesskidukan-on-deviantart-1.png',
 		title: 'ESSENTIALS',
-		desc: 'Everyday is a new day.',
+		desc: '일상의 스타일을 더 세련되고 트렌디하게',
 		bg: 'ebfbee',
 	},
 ];

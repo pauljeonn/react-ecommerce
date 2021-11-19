@@ -6,11 +6,13 @@ import Navbar from '../components/Navbar';
 import ProductList from '../components/ProductList';
 
 const Container = styled.div`
+	margin-top: 70px;
 	width: 100%;
 `;
 
 const Title = styled.h1`
-	margin: 40px;
+	padding-top: 30px;
+	padding-left: 40px;
 `;
 
 const FilterContainer = styled.div`
@@ -43,7 +45,9 @@ const ProductListPage = () => {
 	return (
 		<Container>
 			<Navbar />
-			<Title>{category.charAt(0).toUpperCase() + category.slice(1)}</Title>
+			<Title>
+				{category && category.charAt(0).toUpperCase() + category.slice(1)}
+			</Title>
 			<FilterContainer>
 				<Filter>
 					Filter Products:
@@ -59,11 +63,9 @@ const ProductListPage = () => {
 						<Option disabled selected>
 							Size
 						</Option>
-						<Option>XS</Option>
 						<Option>S</Option>
 						<Option>M</Option>
 						<Option>L</Option>
-						<Option>XL</Option>
 					</Select>
 				</Filter>
 				<Filter>

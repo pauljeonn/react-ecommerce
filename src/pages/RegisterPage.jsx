@@ -1,35 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
 const Container = styled.div`
-	width: 100vw;
-	height: 100vh;
+	margin-top: 70px;
+	width: 100%;
 	position: relative;
+	background-color: lightgray;
 `;
 
 const ImgContainer = styled.div`
 	width: 100%;
-	height: 100%;
 	background-color: lightgray;
 	opacity: 0.5;
+	display: flex;
+	justify-content: center;
 `;
 
 const Image = styled.img`
-	width: 100%;
-	height: 100%;
-	object-fit: contain;
+	width: 50%;
+	object-fit: cover;
 `;
 
 const Wrapper = styled.div`
-	width: 40%;
+	width: 400px;
+	height: 350px;
 	background-color: white;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	z-index: 2;
 	position: absolute;
-	top: 50%;
+	top: 40%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	padding: 30px 0;
@@ -47,16 +51,18 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
+	width: 200px;
 	height: 25px;
 	margin-bottom: 10px;
 `;
 
 const Button = styled.button`
 	margin-top: 20px;
-	height: 35px;
+	height: 40px;
 	background-color: teal;
 	color: white;
-	font-weight: 300;
+	font-weight: 400;
+	font-size: 15px;
 	border: none;
 	cursor: pointer;
 `;
@@ -64,6 +70,7 @@ const Button = styled.button`
 const RegisterPage = () => {
 	return (
 		<Container>
+			<Navbar />
 			<ImgContainer>
 				<Image src="https://image.thehyundai.com/static/image/sect/hnm/cpnt/hnmmain1896770020211102134657.jpg" />
 			</ImgContainer>

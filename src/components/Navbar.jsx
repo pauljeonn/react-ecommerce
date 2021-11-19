@@ -5,15 +5,22 @@ import { FiShoppingCart } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-const Container = styled.div`
-	height: 60px;
-`;
+const Container = styled.div``;
 
 const Wrapper = styled.div`
+	width: 100%;
+	height: 70px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 5;
+	background-color: white;
 	padding: 10px 20px;
+	box-sizing: border-box;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	border-bottom: 1px solid #eee;
 `;
 
 const Left = styled.div`

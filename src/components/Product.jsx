@@ -61,17 +61,18 @@ const Icon = styled.div`
 const Product = ({ item }) => {
 	return (
 		<Container>
-			<Image src={item.img} />
-			<Info>
-				<Link to={`/product/${item._id}`}>
+			<Link to={`/product/${item._id}`}>
+				<Image src={item.img} />
+				<Info>
 					<Icon>
 						<FiSearch style={{ color: 'gray', fontSize: '20' }} />
 					</Icon>
-				</Link>
-				<Icon>
+
+					{/* <Icon>
 					<FiShoppingCart style={{ color: 'gray', fontSize: '20' }} />
-				</Icon>
-			</Info>
+				</Icon> */}
+				</Info>
+			</Link>
 		</Container>
 	);
 };

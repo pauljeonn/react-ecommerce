@@ -6,7 +6,9 @@ import { FiPlus } from 'react-icons/fi';
 import { FiMinus } from 'react-icons/fi';
 import { useSelector } from 'react-redux';
 
-const Container = styled.div``;
+const Container = styled.div`
+	margin-top: 100px;
+`;
 
 const Wrapper = styled.div`
 	width: 100%;
@@ -151,13 +153,13 @@ const CartPage = () => {
 										<ProductPrice>
 											{product.price.toLocaleString() + ` KRW`}
 										</ProductPrice>
-										<ProductSize>{`SIZE: ${product.size}`}</ProductSize>
-										<ProductColor>{`COLOR: ${product.color}`}</ProductColor>
-										<ProductAmountContainer>
+										<ProductColor>{`Color: ${product.color}`}</ProductColor>
+										<ProductSize>{`Size: ${product.size}`}</ProductSize>
+										{/* <ProductAmountContainer>
 											<FiPlus />
 											<ProductAmount>{product.quantity}</ProductAmount>
 											<FiMinus />
-										</ProductAmountContainer>
+										</ProductAmountContainer> */}
 									</Details>
 								</ProductDetail>
 								<Hr />

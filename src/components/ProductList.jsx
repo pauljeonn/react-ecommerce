@@ -15,7 +15,7 @@ const Wrapper = styled.div`
 	flex-wrap: wrap;
 `;
 
-const ProductList = ({ category, filters, sort }) => {
+const ProductList = ({ category, filters, sort, isHome }) => {
 	const [products, setProducts] = useState([]);
 	const [filteredProducts, setFilteredProducts] = useState([]);
 
@@ -68,9 +68,11 @@ const ProductList = ({ category, filters, sort }) => {
 					? filteredProducts.map((item) => (
 							<Product key={item._id} item={item} />
 					  ))
-					: products
+					: isHome
+					? products
 							.slice(0, 8)
-							.map((item) => <Product key={item._id} item={item} />)}
+							.map((item) => <Product key={item._id} item={item} />)
+					: products.map((item) => <Product key={item._id} item={item} />)}
 			</Wrapper>
 		</Container>
 	);

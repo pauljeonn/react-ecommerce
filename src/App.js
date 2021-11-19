@@ -21,6 +21,7 @@ function App() {
 			<Router>
 				<Routes>
 					<Route path="/" element={<Home />}></Route>
+					<Route path="/products" element={<ProductListPage />}></Route>
 					<Route
 						path="/products/:category"
 						element={<ProductListPage />}
