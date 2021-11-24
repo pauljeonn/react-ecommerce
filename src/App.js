@@ -12,9 +12,10 @@ import ProductPage from './pages/ProductPage';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
 import CartPage from './pages/CartPage';
+import { useSelector } from 'react-redux';
 
 function App() {
-	const user = false;
+	const user = useSelector((state) => state.user.currentUser);
 
 	return (
 		<div className="App">

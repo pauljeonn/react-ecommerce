@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { login } from '../redux/apiCalls';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Container = styled.div`
 	margin-top: 70px;
@@ -65,6 +67,18 @@ const Button = styled.button`
 	font-size: 15px;
 	border: none;
 	cursor: pointer;
+
+	&:disabled {
+		background-color: lightgray;
+		cursor: not-allowed;
+	}
+`;
+
+const Error = styled.span`
+	color: red;
+	font-size: 14px;
+	margin-top: 5px;
+	font-weight: 300;
 `;
 
 const RedirectContainer = styled.div`
@@ -85,6 +99,16 @@ const Redirect = styled.a`
 `;
 
 const LoginPage = () => {
+	const [username, setUsername] = useState('');
+	const [password, setPassword] = useState('');
+	const dispatch = useDispatch();
+	const { isFetching, error } = useSelector((state) => state.user);
+
+	const handleClick = (e) => {
+		e.preventDefault();
+		login(dispatch, { username, password }); //apiCalls
+	};
+
 	return (
 		<Container>
 			<Navbar />
@@ -94,9 +118,19 @@ const LoginPage = () => {
 			<Wrapper>
 				<Title>LOGIN</Title>
 				<Form>
-					<Input placeholder="email address" />
-					<Input placeholder="password" />
-					<Button>SIGN IN</Button>
+					<Input
+						placeholder="username"
+						onChange={(e) => setUsername(e.target.value)}
+					/>
+					<Input
+						type="password"
+						placeholder="password"
+						onChange={(e) => setPassword(e.target.value)}
+					/>
+					<Button onClick={handleClick} disabled={isFetching}>
+						SIGN IN
+					</Button>
+					{error && <Error>Something went wrong...</Error>}
 					<RedirectContainer>
 						<Redirect>Forgot password?</Redirect>
 						<Link
