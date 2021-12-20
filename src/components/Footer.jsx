@@ -4,6 +4,7 @@ import { FiFacebook } from 'react-icons/fi';
 import { FiInstagram } from 'react-icons/fi';
 import { FiTwitter } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+import { ReactComponent as LogoImg } from '../images/lieu-logo.svg';
 
 const Container = styled.div`
 	margin-top: 80px;
@@ -32,12 +33,12 @@ const Logo = styled.div`
 `;
 
 const SocialContainer = styled.div`
-	margin-top: 10px;
+	margin: 10px 20px 0;
 	display: flex;
 `;
 
 const SocialIcon = styled.div`
-	margin-right: 10px;
+	margin-right: 26px;
 	font-size: 18px;
 	display: flex;
 	justify-content: center;
@@ -65,9 +66,9 @@ const Footer = () => {
 		<Container>
 			<FooterContainer>
 				<Left>
-					<Link to="/" style={{ textDecoration: 'none', color: 'black' }}>
+					<Link to="/">
 						<Logo>
-							<h1>JEONN</h1>
+							<LogoImg style={{ height: '50px' }} />
 						</Logo>
 					</Link>
 					<SocialContainer>

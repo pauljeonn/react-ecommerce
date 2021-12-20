@@ -6,9 +6,9 @@ import { sliderItems } from '../data';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-	margin-top: 100px;
+	margin-top: 70px;
 	width: 100%;
-	height: 70vh;
+	height: 600px;
 	display: flex;
 	position: relative;
 	overflow-x: hidden;
@@ -48,48 +48,49 @@ const Slide = styled.div`
 	height: 100%;
 	display: flex;
 	align-items: center;
-	background-color: #${(props) => props.bg}; // slide 배경색 props로 전달
-`;
-
-const ImgContainer = styled.div`
-	flex: 1;
-	height: 100%;
-	display: flex;
 	justify-content: center;
-	align-items: flex-end;
+	background-color: #${(props) => props.bg}; // slide 배경색 props로 전달
+	position: relative;
 `;
 
 const Image = styled.img`
-	height: 90%;
+	width: 90%;
+	max-width: 1200px;
+	height: 100%;
+	position: absolute;
+	top: 0;
 `;
 
 const InfoContainer = styled.div`
-	flex: 1;
-	padding-right: 3%;
+	z-index: 2;
+	text-align: center;
 `;
 
 const Title = styled.h1`
-	font-size: 75px;
+	font-size: 40px;
+	color: ${(props) => (props.id === 3 ? 'white' : 'black')};
 `;
 const Desc = styled.p`
-	margin: 50px 0;
+	margin: 20px 0;
 	font-size: 20px;
+	color: ${(props) => (props.id === 3 ? 'white' : 'black')};
 `;
 const Button = styled.button`
 	width: 180px;
-	height: 50px;
-	padding: 10px;
+	height: 45px;
+	padding: 5px;
 	font-size: 20px;
-	background-color: black;
-	color: white;
+	background-color: ${(props) => (props.id === 3 ? 'white' : 'black')};
+	color: ${(props) => (props.id === 3 ? 'black' : 'white')};
 	border: 2px solid black;
 
 	cursor: pointer;
 
 	&:hover {
 		background-color: transparent;
-		border: 2px solid black;
-		color: black;
+		border: ${(props) =>
+			props.id === 3 ? '2px solid white' : '2px solid black'};
+		color: ${(props) => (props.id === 3 ? 'white' : 'black')};
 	}
 `;
 
@@ -113,15 +114,13 @@ const Slider = () => {
 			</Arrow>
 			<Wrapper slideIndex={slideIndex}>
 				{sliderItems.map((item) => (
-					<Slide key={item.id} bg={item.bg}>
-						<ImgContainer>
-							<Image src={item.img} />
-						</ImgContainer>
+					<Slide key={item.id}>
+						<Image src={item.img} />
 						<InfoContainer>
-							<Title>{item.title}</Title>
-							<Desc>{item.desc}</Desc>
+							<Title id={item.id}>{item.title}</Title>
+							<Desc id={item.id}>{item.desc}</Desc>
 							<Link to="/products">
-								<Button>SHOP ALL</Button>
+								<Button id={item.id}>SHOP NOW</Button>
 							</Link>
 						</InfoContainer>
 					</Slide>

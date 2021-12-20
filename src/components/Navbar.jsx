@@ -4,6 +4,7 @@ import { FiSearch } from 'react-icons/fi';
 import { FiShoppingCart } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { ReactComponent as LogoImg } from '../images/lieu-logo.svg';
 
 const Container = styled.div``;
 
@@ -52,7 +53,8 @@ const Center = styled.div`
 `;
 
 const Logo = styled.h1`
-	font-weight: bold;
+	font-size: 45px;
+	font-weight: 700;
 `;
 
 const Right = styled.div`
@@ -101,7 +103,7 @@ const Navbar = () => {
 				</Left>
 				<Center>
 					<Link to={'/'} style={{ textDecoration: 'none', color: 'black' }}>
-						<Logo>JEONN</Logo>
+						<LogoImg />
 					</Link>
 				</Center>
 				<Right>
