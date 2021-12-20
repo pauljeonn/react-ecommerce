@@ -59,7 +59,7 @@ const Input = styled.input`
 const Button = styled.button`
 	margin-top: 20px;
 	height: 40px;
-	background-color: teal;
+	background-color: black;
 	color: white;
 	font-weight: 400;
 	font-size: 15px;
@@ -75,14 +75,14 @@ const RegisterPage = () => {
 				<Image src="https://image.thehyundai.com/static/image/sect/hnm/cpnt/hnmmain1896770020211102134657.jpg" />
 			</ImgContainer>
 			<Wrapper>
-				<Title>CREATE AN ACCOUNT</Title>
+				<Title>회원가입</Title>
 				<Form>
-					<Input placeholder="name" />
-					<Input placeholder="email address" />
-					<Input placeholder="phone number" />
-					<Input placeholder="password" />
-					<Input placeholder="confirm password" />
-					<Button>CREATE ACCOUNT</Button>
+					<Input placeholder="이름" />
+					<Input placeholder="이메일" />
+					<Input placeholder="전화번호" />
+					<Input placeholder="비밀번호" />
+					<Input placeholder="비밀번호 확인" />
+					<Button>가입하기</Button>
 				</Form>
 			</Wrapper>
 			<Footer />

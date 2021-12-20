@@ -61,7 +61,7 @@ const Input = styled.input`
 
 const Button = styled.button`
 	height: 40px;
-	background-color: teal;
+	background-color: black;
 	color: white;
 	font-weight: 400;
 	font-size: 15px;
@@ -85,6 +85,7 @@ const RedirectContainer = styled.div`
 	margin-top: 50px;
 	display: flex;
 	flex-direction: column;
+	text-align: center;
 `;
 
 const Redirect = styled.a`
@@ -119,25 +120,24 @@ const LoginPage = () => {
 				<Title>LOGIN</Title>
 				<Form>
 					<Input
-						placeholder="username"
+						placeholder="이메일"
 						onChange={(e) => setUsername(e.target.value)}
 					/>
 					<Input
 						type="password"
-						placeholder="password"
+						placeholder="비밀번호"
 						onChange={(e) => setPassword(e.target.value)}
 					/>
 					<Button onClick={handleClick} disabled={isFetching}>
-						SIGN IN
+						로그인
 					</Button>
 					{error && <Error>Something went wrong...</Error>}
 					<RedirectContainer>
-						<Redirect>Forgot password?</Redirect>
 						<Link
 							to="/register"
 							style={{ textDecoration: 'none', color: 'black' }}
 						>
-							<Redirect>Create a new account?</Redirect>
+							<Redirect>회원가입 ></Redirect>
 						</Link>
 					</RedirectContainer>
 				</Form>

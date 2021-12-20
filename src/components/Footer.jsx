@@ -8,7 +8,7 @@ import { ReactComponent as LogoImg } from '../images/lieu-logo.svg';
 
 const Container = styled.div`
 	margin-top: 80px;
-	padding: 40px 0;
+	padding: 30px 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -61,6 +61,12 @@ const MenuItem = styled.div`
 	cursor: pointer;
 `;
 
+const Copyright = styled.div`
+	margin-top: 80px;
+	font-size: 14px;
+	font-weight: 300;
+`;
+
 const Footer = () => {
 	return (
 		<Container>
@@ -92,6 +98,7 @@ const Footer = () => {
 					</MenuContainer>
 				</Right>
 			</FooterContainer>
+			{/* <Copyright>© 2021. Paul Jeon. All rights reserved.</Copyright> */}
 		</Container>
 	);
 };

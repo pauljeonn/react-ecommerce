@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Container = styled.div`
 	margin-top: 70px;
 	width: 100%;
-	height: 600px;
+	height: 700px;
 	display: flex;
 	position: relative;
 	overflow-x: hidden;
@@ -55,7 +55,7 @@ const Slide = styled.div`
 
 const Image = styled.img`
 	width: 90%;
-	max-width: 1200px;
+	max-width: 1400px;
 	height: 100%;
 	position: absolute;
 	top: 0;

@@ -107,6 +107,7 @@ const RightButton = styled.button`
 	width: 200px;
 	background-color: ${(props) => (props.type === 'filled' ? 'teal' : 'black')};
 	color: white;
+	font-size: 16px;
 	font-weight: 400;
 	border: none;
 	cursor: pointer;
@@ -152,7 +153,7 @@ const CartPage = () => {
 			<Navbar />
 			<Wrapper>
 				<Left>
-					<LeftTitle>YOUR SHOPPING BAG</LeftTitle>
+					<LeftTitle>장바구니</LeftTitle>
 					<Info>
 						{cart.products.map((product) => (
 							<Product key={product._id}>
@@ -161,7 +162,7 @@ const CartPage = () => {
 									<Details>
 										<ProductName>{product.title}</ProductName>
 										<ProductPrice>
-											{product.price.toLocaleString() + ` KRW`}
+											{product.price.toLocaleString() + ` 원`}
 										</ProductPrice>
 										<ProductColor>{`Color: ${product.color}`}</ProductColor>
 										<ProductSize>{`Size: ${product.size}`}</ProductSize>
@@ -178,16 +179,16 @@ const CartPage = () => {
 					</Info>
 				</Left>
 				<Right>
-					<RightTitle>ORDER SUMMARY</RightTitle>
+					<RightTitle>주문 요약</RightTitle>
 					<Summary>
 						<SummaryItem>
 							<SummaryItemText>SUBTOTAL</SummaryItemText>
-							<SummaryItemPrice>{`${cart.total.toLocaleString()} KRW`}</SummaryItemPrice>
+							<SummaryItemPrice>{`${cart.total.toLocaleString()} 원`}</SummaryItemPrice>
 						</SummaryItem>
 						<SummaryItem>
 							<SummaryItemText>SHIPPING</SummaryItemText>
 							<SummaryItemPrice>
-								{cart.total === 0 ? '0 KRW' : '30,000 KRW'}
+								{cart.total === 0 ? '0 원' : '30,000 원'}
 							</SummaryItemPrice>
 						</SummaryItem>
 						<Hr />
@@ -195,13 +196,13 @@ const CartPage = () => {
 							<SummaryItemText type="total">TOTAL</SummaryItemText>
 							<SummaryItemPrice type="total">
 								{cart.total === 0
-									? '0 KRW'
-									: `${(cart.total + 30000).toLocaleString()} KRW`}
+									? '0 원'
+									: `${(cart.total + 30000).toLocaleString()} 원`}
 							</SummaryItemPrice>
 						</SummaryItem>
 					</Summary>
-					<RightButton type="filled">CHECKOUT NOW</RightButton>
-					<RightButton onClick={goBack}>CONTINUE SHOPPING</RightButton>
+					<RightButton type="filled">주문하기</RightButton>
+					<RightButton onClick={goBack}>계속 쇼핑하기</RightButton>
 				</Right>
 			</Wrapper>
 			<Footer />
