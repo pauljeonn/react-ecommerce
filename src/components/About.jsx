@@ -13,9 +13,9 @@ const Container = styled.div`
 `;
 
 const Wrapper1 = styled.div`
-	width: 90%;
-	max-width: 1400px;
-	height: 650px;
+	width: 100%;
+	max-width: 1200px;
+	height: 700px;
 	background-color: black;
 	display: flex;
 	flex-direction: column;
@@ -42,9 +42,9 @@ const Img = styled.img`
 `;
 
 const Wrapper2 = styled.div`
-	width: 90%;
-	max-width: 1400px;
-	height: 650px;
+	width: 100%;
+	max-width: 1200px;
+	height: 700px;
 	background-color: #eff2e4;
 	display: flex;
 	flex-direction: column;

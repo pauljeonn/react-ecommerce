@@ -19,9 +19,9 @@ const Home = () => {
 			<Navbar />
 			{/* <Announcement /> */}
 			<Slider />
-			<About />
 			<Categories />
-			<ProductList isHome={true} />
+			<About />
+			{/* <ProductList isHome={true} /> */}
 			<Footer />
 		</Container>
 	);

@@ -4,40 +4,37 @@ export const sliderItems = [
 		img: 'https://firebasestorage.googleapis.com/v0/b/portfolio-pauljeon.appspot.com/o/ecommerce-bg-1.jpeg?alt=media&token=468df260-cedc-4312-bf28-dbdac867f229',
 		title: '21 F/W COLLECTION',
 		desc: '모던하게 재해석한 겨울 컬렉션',
-		bg: 'fad2c6',
 	},
 	{
 		id: 2,
 		img: 'https://firebasestorage.googleapis.com/v0/b/portfolio-pauljeon.appspot.com/o/ecommerce-bg-2.jpeg?alt=media&token=779fef3f-f982-4d73-85cf-87c612f769c6',
 		title: 'OUR BEST SELLERS',
 		desc: '시즌에 구애받지 않은 인기 아이템들을 만나보세요',
-		bg: 'fff9db',
 	},
 	{
 		id: 3,
 		img: 'https://firebasestorage.googleapis.com/v0/b/portfolio-pauljeon.appspot.com/o/ecommerce-bg-3.jpeg?alt=media&token=2bd7f072-f63f-4364-a536-d946b0e48c36',
 		title: 'ESSENTIALS',
 		desc: '일상의 스타일을 더 세련되고 트렌디하게',
-		bg: 'ebfbee',
 	},
 ];
 
 export const categories = [
 	{
-		id: 3,
-		img: 'https://images.asos-media.com/products/levis-sunset-relaxed-fit-cord-collar-denim-trucker-jacket-in-beige/24370580-3?$n_640w$&wid=513&fit=constrain',
+		id: 1,
+		img: 'https://image.thehyundai.com/static/image/sect/hnm/cpnt/hnmmain1916231020211223163226.jpg',
 		title: 'JACKETS',
 		category: 'jackets',
 	},
 	{
 		id: 2,
-		img: 'https://images.unsplash.com/photo-1587065458592-de212e88166b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1287&q=80',
+		img: 'https://image.thehyundai.com/static/1/1/4/43/A1/hnm40A1434110_01_1039810_001_001_1600.jpg',
 		title: 'SHIRTS',
 		category: 'shirts',
 	},
 	{
-		id: 1,
-		img: 'https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//98/MTA-5098363/okechuku_okechuku_sweater_hoodie_polos_pria_model_korea_jumper_korean_style_full07_ol98ysre.jpg',
+		id: 3,
+		img: 'https://image.thehyundai.com/static/7/7/7/43/A1/hnm40A1437779_01_1050107_001_002_1600.jpg',
 		title: 'HOODIES',
 		category: 'hoodies',
 	},

@@ -182,18 +182,18 @@ const CartPage = () => {
 					<RightTitle>주문 요약</RightTitle>
 					<Summary>
 						<SummaryItem>
-							<SummaryItemText>SUBTOTAL</SummaryItemText>
+							<SummaryItemText>상품 금액</SummaryItemText>
 							<SummaryItemPrice>{`${cart.total.toLocaleString()} 원`}</SummaryItemPrice>
 						</SummaryItem>
 						<SummaryItem>
-							<SummaryItemText>SHIPPING</SummaryItemText>
+							<SummaryItemText>배송비</SummaryItemText>
 							<SummaryItemPrice>
 								{cart.total === 0 ? '0 원' : '30,000 원'}
 							</SummaryItemPrice>
 						</SummaryItem>
 						<Hr />
 						<SummaryItem>
-							<SummaryItemText type="total">TOTAL</SummaryItemText>
+							<SummaryItemText type="total">총 결제 금액</SummaryItemText>
 							<SummaryItemPrice type="total">
 								{cart.total === 0
 									? '0 원'

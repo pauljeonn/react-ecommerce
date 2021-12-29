@@ -137,7 +137,7 @@ const LoginPage = () => {
 							to="/register"
 							style={{ textDecoration: 'none', color: 'black' }}
 						>
-							<Redirect>회원가입 ></Redirect>
+							<Redirect>회원가입</Redirect>
 						</Link>
 					</RedirectContainer>
 				</Form>

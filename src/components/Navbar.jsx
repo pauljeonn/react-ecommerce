@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ReactComponent as LogoImg } from '../images/lieu-logo.svg';
 
-const Container = styled.div``;
+const Container = styled.div`
+	width: 100%;
+`;
 
 const Wrapper = styled.div`
 	width: 100%;
@@ -16,7 +18,7 @@ const Wrapper = styled.div`
 	left: 0;
 	z-index: 5;
 	background-color: white;
-	padding: 10px 20px;
+	padding: 10px 70px;
 	box-sizing: border-box;
 	display: flex;
 	justify-content: space-between;

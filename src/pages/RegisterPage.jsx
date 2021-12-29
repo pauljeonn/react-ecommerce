@@ -80,8 +80,8 @@ const RegisterPage = () => {
 					<Input placeholder="이름" />
 					<Input placeholder="이메일" />
 					<Input placeholder="전화번호" />
-					<Input placeholder="비밀번호" />
-					<Input placeholder="비밀번호 확인" />
+					<Input type="password" placeholder="비밀번호" />
+					<Input type="password" placeholder="비밀번호 확인" />
 					<Button>가입하기</Button>
 				</Form>
 			</Wrapper>

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as LogoImg } from '../images/lieu-logo.svg';
 
 const Container = styled.div`
+	width: 100%;
 	margin-top: 80px;
 	padding: 30px 0;
 	display: flex;
@@ -48,7 +49,7 @@ const SocialIcon = styled.div`
 
 const Right = styled.div`
 	flex: 1;
-	margin-top: 10px;
+	margin-top: 50px;
 `;
 
 const MenuContainer = styled.div`

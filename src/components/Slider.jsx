@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Container = styled.div`
 	margin-top: 70px;
 	width: 100%;
-	height: 700px;
+	height: 685px;
 	display: flex;
 	position: relative;
 	overflow-x: hidden;
@@ -23,20 +23,28 @@ const Arrow = styled.div`
 	position: absolute;
 	top: 0;
 	bottom: 0;
+	left: 50%;
 	// direction props에 따라서 위치 설정
-	left: ${(props) => props.direction === 'left' && '10px'};
-	right: ${(props) => props.direction === 'right' && '10px'};
+	transform: ${(props) =>
+		props.direction === 'left'
+			? 'translate(-580px, 0)'
+			: 'translate(530px, 0)'};
 	margin: auto;
 	cursor: pointer;
 	opacity: 0.7;
-	font-size: 20px;
+	font-size: 28px;
 	z-index: 2;
+
+	&:hover {
+		color: gray;
+	}
 `;
 
 const Wrapper = styled.div`
 	height: 100%;
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	transition: all 1.5s ease; // slider animation
 	transform: translateX(
 		${(props) => props.slideIndex * -100}vw
@@ -49,14 +57,14 @@ const Slide = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #${(props) => props.bg}; // slide 배경색 props로 전달
 	position: relative;
 `;
 
 const Image = styled.img`
-	width: 90%;
-	max-width: 1400px;
+	width: 100%;
+	/* max-width: 1200px; */
 	height: 100%;
+	object-fit: scale-down;
 	position: absolute;
 	top: 0;
 `;
@@ -70,11 +78,13 @@ const Title = styled.h1`
 	font-size: 40px;
 	color: ${(props) => (props.id === 3 ? 'white' : 'black')};
 `;
+
 const Desc = styled.p`
 	margin: 20px 0;
 	font-size: 20px;
 	color: ${(props) => (props.id === 3 ? 'white' : 'black')};
 `;
+
 const Button = styled.button`
 	width: 180px;
 	height: 45px;
@@ -83,9 +93,7 @@ const Button = styled.button`
 	background-color: ${(props) => (props.id === 3 ? 'white' : 'black')};
 	color: ${(props) => (props.id === 3 ? 'black' : 'white')};
 	border: 2px solid black;
-
 	cursor: pointer;
-
 	&:hover {
 		background-color: transparent;
 		border: ${(props) =>
@@ -134,3 +142,150 @@ const Slider = () => {
 };
 
 export default Slider;
+// import React, { useState } from 'react';
+// import styled from 'styled-components';
+// import { MdArrowBackIos } from 'react-icons/md';
+// import { MdArrowForwardIos } from 'react-icons/md';
+// import { sliderItems } from '../data';
+// import { Link } from 'react-router-dom';
+
+// const Container = styled.div`
+// 	margin: 70px 0 0;
+// 	width: 100%;
+// 	height: 700px;
+// 	display: flex;
+// 	justify-content: center;
+// 	overflow-x: hidden;
+// `;
+
+// const Inner = styled.div`
+// 	width: 90%;
+// 	/* max-width: 1200px; */
+// 	height: 100%;
+// 	display: flex;
+// 	justify-content: center;
+// 	position: relative;
+// 	overflow-x: hidden;
+// `;
+
+// const Arrow = styled.div`
+// 	width: 30px;
+// 	height: 30px;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// 	position: absolute;
+// 	top: 0;
+// 	bottom: 0;
+// 	left: 50%;
+// 	// direction props에 따라서 위치 설정
+// 	transform: ${(props) =>
+// 		props.direction === 'left'
+// 			? 'translate(-450px, 0)'
+// 			: 'translate(830px, 0)'};
+// 	margin: auto;
+// 	cursor: pointer;
+// 	opacity: 0.8;
+// 	font-size: 30px;
+// 	z-index: 3;
+// `;
+
+// const Wrapper = styled.div`
+// 	height: 100%;
+// 	display: flex;
+// 	transition: all 1.5s ease; // slider animation
+// 	transform: translateX(
+// 		${(props) => props.slideIndex * -100}vw
+// 	); // slideIndex * -100vw만큼 이동
+// `;
+
+// const Slide = styled.div`
+// 	height: 100%;
+// 	display: flex;
+// 	align-items: center;
+// 	justify-content: center;
+// `;
+
+// const Image = styled.img`
+// 	width: 100vw;
+// 	height: 100%;
+// 	position: absolute;
+// 	top: 0;
+// `;
+
+// const InfoContainer = styled.div`
+// 	z-index: 2;
+// 	text-align: center;
+// `;
+
+// const Title = styled.h1`
+// 	font-size: 40px;
+// 	color: ${(props) => (props.id === 3 ? 'white' : 'black')};
+// `;
+
+// const Desc = styled.p`
+// 	margin: 20px 0;
+// 	font-size: 20px;
+// 	color: ${(props) => (props.id === 3 ? 'white' : 'black')};
+// `;
+
+// const Button = styled.button`
+// 	width: 180px;
+// 	height: 45px;
+// 	padding: 5px;
+// 	font-size: 20px;
+// 	background-color: ${(props) => (props.id === 3 ? 'white' : 'black')};
+// 	color: ${(props) => (props.id === 3 ? 'black' : 'white')};
+// 	border: 2px solid black;
+// 	cursor: pointer;
+
+// 	&:hover {
+// 		background-color: transparent;
+// 		border: ${(props) =>
+// 			props.id === 3 ? '2px solid white' : '2px solid black'};
+// 		color: ${(props) => (props.id === 3 ? 'white' : 'black')};
+// 	}
+// `;
+
+// const Slider = () => {
+// 	const [slideIndex, setSlideIndex] = useState(0);
+
+// 	const handleClick = (direction) => {
+// 		if (direction === 'left') {
+// 			// left 버튼 클릭 시 현재 slideIndex가 0이면 set to 마지막 아이템 인덱스
+// 			setSlideIndex(slideIndex > 0 ? slideIndex - 1 : sliderItems.length - 1);
+// 		} else {
+// 			// right 버튼 클릭 시 현재 slideIndex가 마지막이면 set to 0
+// 			setSlideIndex(slideIndex < sliderItems.length - 1 ? slideIndex + 1 : 0);
+// 		}
+// 	};
+
+// 	return (
+// 		<Container>
+// 			<Inner>
+// 				<Arrow direction="left" onClick={() => handleClick('left')}>
+// 					<MdArrowBackIos />
+// 				</Arrow>
+// 				<Arrow direction="right" onClick={() => handleClick('right')}>
+// 					<MdArrowForwardIos />
+// 				</Arrow>
+// 				<Wrapper slideIndex={slideIndex}>
+// 					{sliderItems.map((item) => (
+// 						<Slide key={item.id}>
+// 							<Image src={item.img} />
+// 							<InfoContainer>
+// 								<Title id={item.id}>{item.title}</Title>
+// 								<Desc id={item.id}>{item.desc}</Desc>
+// 								<Link to="/products">
+// 									<Button id={item.id}>SHOP NOW</Button>
+// 								</Link>
+// 							</InfoContainer>
+// 						</Slide>
+// 					))}
+// 				</Wrapper>
+// 			</Inner>
+// 		</Container>
+// 	);
+// };
+
+// export default Slider;
