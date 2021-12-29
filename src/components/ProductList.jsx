@@ -5,6 +5,7 @@ import { publicRequest } from '../requestMethods';
 
 const Container = styled.div`
 	width: 100%;
+	max-width: 1600px;
 	margin-top: 5px;
 	display: flex;
 	justify-content: center;
@@ -12,9 +13,10 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-	width: 100%;
+	width: 90%;
 	display: flex;
 	flex-wrap: wrap;
+	margin: 0 auto;
 `;
 
 const ProductList = ({ category, filters, sort, isHome }) => {

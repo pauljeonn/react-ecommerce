@@ -9,9 +9,15 @@ import { useDispatch } from 'react-redux';
 
 const Container = styled.div`
 	margin-top: 100px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `;
 
 const Wrapper = styled.div`
+	width: 100%;
+	max-width: 1200px;
 	display: flex;
 	margin: 40px 0;
 `;
@@ -23,7 +29,7 @@ const ImgContainer = styled.div`
 `;
 
 const Image = styled.img`
-	height: 80vh;
+	max-width: 450px;
 `;
 
 const InfoContainer = styled.div`
@@ -69,23 +75,6 @@ const FilterColor = styled.select`
 
 const FilterColorOption = styled.option``;
 
-// const FilterSize = styled.div`
-// 	display: flex;
-// `;
-
-// const FilterSizeOption = styled.div`
-// 	width: 30px;
-// 	height: 25px;
-// 	border: 1px solid lightgray;
-// 	margin-right: 10px;
-// 	display: flex;
-// 	align-items: center;
-// 	justify-content: center;
-// 	font-size: 14px;
-// 	font-weight: 300;
-// 	cursor: pointer;
-// `;
-
 const FilterSize = styled.select`
 	width: 200px;
 	height: 25px;
@@ -98,10 +87,11 @@ const AddContainer = styled.div``;
 
 const AddButton = styled.button`
 	width: 200px;
-	height: 35px;
+	height: 40px;
 	border: none;
-	background-color: ${(props) => (props.size ? 'black' : 'lightgray')};
+	background-color: ${(props) => (props.size ? 'black' : '#aaa')};
 	color: white;
+	font-size: 16px;
 	font-weight: 300;
 	cursor: pointer;
 `;
@@ -165,11 +155,11 @@ const ProductPage = () => {
 					<Title>{product.title}</Title>
 					<Desc>{product.desc}</Desc>
 					<Price>
-						{product.price && product.price.toLocaleString() + ` KRW`}
+						{product.price && product.price.toLocaleString() + `원`}
 					</Price>
 					<FilterContainer>
 						<Filter>
-							<FilterTitle>COLOR</FilterTitle>
+							<FilterTitle>색상</FilterTitle>
 							<FilterColor onChange={(e) => setColor(e.target.value)}>
 								<FilterColorOption selected>{color}</FilterColorOption>
 								{/* {product.color &&
@@ -181,7 +171,7 @@ const ProductPage = () => {
 							</FilterColor>
 						</Filter>
 						<Filter>
-							<FilterTitle>SIZE</FilterTitle>
+							<FilterTitle>사이즈</FilterTitle>
 							{/* {product.size &&
 									product.size.map((s) => (
 										<FilterSizeOption
@@ -195,7 +185,7 @@ const ProductPage = () => {
 									))} */}
 							<FilterSize onChange={(e) => setSize(e.target.value)}>
 								<FilterSizeOption selected disabled>
-									Select Size
+									사이즈 선택
 								</FilterSizeOption>
 								{product.size &&
 									product.size.map((s) => (
@@ -208,7 +198,7 @@ const ProductPage = () => {
 					</FilterContainer>
 					<AddContainer>
 						<AddButton size={size} onClick={handleClick}>
-							ADD TO CART
+							장바구니에 담기
 						</AddButton>
 						<Warning size={size}>사이즈를 선택해주세요.</Warning>
 					</AddContainer>

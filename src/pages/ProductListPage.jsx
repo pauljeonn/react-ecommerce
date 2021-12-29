@@ -8,6 +8,9 @@ import ProductList from '../components/ProductList';
 const Container = styled.div`
 	margin-top: 70px;
 	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `;
 
 const Title = styled.h1`
@@ -16,18 +19,29 @@ const Title = styled.h1`
 `;
 
 const FilterContainer = styled.div`
+	width: 100%;
+	max-width: 1500px;
 	display: flex;
 	justify-content: space-between;
 	margin: 40px;
+	padding: 0 40px;
+	box-sizing: border-box;
 `;
 
 const Filter = styled.div``;
 
 const Select = styled.select`
 	margin-left: 10px;
+	width: 100px;
 `;
 
 const Option = styled.option``;
+
+const ProductListContainer = styled.div`
+	width: 100%;
+	display: flex;
+	justify-content: center;
+`;
 
 const ProductListPage = () => {
 	const location = useLocation();
@@ -36,7 +50,7 @@ const ProductListPage = () => {
 	const [sort, setSort] = useState('newest');
 
 	const handleFilters = (e) => {
-		if (e.target.value === 'All') {
+		if (e.target.value === '전체') {
 			setFilter({});
 		} else {
 			setFilter({
@@ -58,27 +72,24 @@ const ProductListPage = () => {
 			</Title>
 			<FilterContainer>
 				<Filter>
-					Filter Products
+					필터
 					<Select name="color" onChange={handleFilters}>
-						<Option disabled selected>
+						{/* <Option disabled selected>
 							색상
-						</Option>
-						<Option>All</Option>
-						<Option>Black</Option>
-						<Option>Gray</Option>
-						<Option>White</Option>
-						<Option>Ivory</Option>
-						<Option>Navy</Option>
-						<Option>Green</Option>
-						<Option>Red</Option>
-						<Option>Brown</Option>
-						<Option>Yellow</Option>
+						</Option> */}
+						<Option selected>전체</Option>
+						<Option>블랙</Option>
+						<Option>그레이</Option>
+						<Option>화이트</Option>
+						<Option>브라운</Option>
+						<Option>그린</Option>
+						<Option>블루</Option>
 					</Select>
 					<Select name="size" onChange={handleFilters}>
-						<Option disabled selected>
+						{/* <Option disabled selected>
 							사이즈
-						</Option>
-						<Option>All</Option>
+						</Option> */}
+						<Option selected>전체</Option>
 						<Option>XS</Option>
 						<Option>S</Option>
 						<Option>M</Option>
@@ -87,18 +98,20 @@ const ProductListPage = () => {
 					</Select>
 				</Filter>
 				<Filter>
-					Sort Products
+					정렬
 					<Select onChange={(e) => setSort(e.target.value)}>
-						<Option selected disabled>
-							정렬
+						{/* <Option selected>추천순</Option> */}
+						<Option selected value="newest">
+							신상품순
 						</Option>
-						<Option value="newest">최신순</Option>
 						<Option value="price-asc">가격 낮은순</Option>
 						<Option value="price-desc">가격 높은순</Option>
 					</Select>
 				</Filter>
 			</FilterContainer>
-			<ProductList category={category} filters={filters} sort={sort} />
+			<ProductListContainer>
+				<ProductList category={category} filters={filters} sort={sort} />
+			</ProductListContainer>
 			<Footer />
 		</Container>
 	);

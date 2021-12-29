@@ -7,18 +7,24 @@ import { useSelector } from 'react-redux';
 import { ReactComponent as LogoImg } from '../images/lieu-logo.svg';
 
 const Container = styled.div`
-	width: 100%;
+	width: 100vw;
 `;
 
 const Wrapper = styled.div`
 	width: 100%;
-	height: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	position: fixed;
 	top: 0;
-	left: 0;
-	z-index: 5;
+	z-index: 10;
+`;
+
+const Inner = styled.div`
+	width: 100%;
+	max-width: 1400px;
 	background-color: white;
-	padding: 10px 70px;
+	padding: 0 70px;
 	box-sizing: border-box;
 	display: flex;
 	justify-content: space-between;
@@ -47,6 +53,7 @@ const SearchContainer = styled.div`
 
 const Input = styled.input`
 	border: none;
+	outline: none;
 `;
 
 const Center = styled.div`
@@ -67,7 +74,7 @@ const Right = styled.div`
 `;
 
 const MenuItem = styled.div`
-	margin-left: 25px;
+	margin-left: 30px;
 `;
 
 const CartContainer = styled.div`
@@ -96,43 +103,48 @@ const Navbar = () => {
 	return (
 		<Container>
 			<Wrapper>
-				<Left>
-					<Language>EN</Language>
-					<SearchContainer>
-						<Input />
-						<FiSearch style={{ color: 'gray', fontSize: '15' }} />
-					</SearchContainer>
-				</Left>
-				<Center>
-					<Link to={'/'} style={{ textDecoration: 'none', color: 'black' }}>
-						<LogoImg />
-					</Link>
-				</Center>
-				<Right>
-					<Link
-						to="/products"
-						style={{ textDecoration: 'none', color: 'black' }}
-					>
-						<MenuItem>SHOP</MenuItem>
-					</Link>
-					<Link
-						to="/register"
-						style={{ textDecoration: 'none', color: 'black' }}
-					>
-						<MenuItem>REGISTER</MenuItem>
-					</Link>
-					<Link to="/login" style={{ textDecoration: 'none', color: 'black' }}>
-						<MenuItem>LOGIN</MenuItem>
-					</Link>
-					<Link to="/cart">
-						<MenuItem>
-							<CartContainer>
-								<Badge quantity={quantity}>{quantity}</Badge>
-								<FiShoppingCart />
-							</CartContainer>
-						</MenuItem>
-					</Link>
-				</Right>
+				<Inner>
+					<Left>
+						{/* <Language>EN</Language>
+						<SearchContainer>
+							<Input />
+							<FiSearch style={{ color: 'gray', fontSize: '15' }} />
+						</SearchContainer> */}
+					</Left>
+					<Center>
+						<Link to={'/'} style={{ textDecoration: 'none', color: 'black' }}>
+							<LogoImg />
+						</Link>
+					</Center>
+					<Right>
+						<Link
+							to="/products"
+							style={{ textDecoration: 'none', color: 'black' }}
+						>
+							<MenuItem>SHOP</MenuItem>
+						</Link>
+						{/* <Link
+							to="/register"
+							style={{ textDecoration: 'none', color: 'black' }}
+						>
+							<MenuItem>REGISTER</MenuItem>
+						</Link>
+						<Link
+							to="/login"
+							style={{ textDecoration: 'none', color: 'black' }}
+						>
+							<MenuItem>LOGIN</MenuItem>
+						</Link> */}
+						<Link to="/cart">
+							<MenuItem>
+								<CartContainer>
+									<Badge quantity={quantity}>{quantity}</Badge>
+									<FiShoppingCart />
+								</CartContainer>
+							</MenuItem>
+						</Link>
+					</Right>
+				</Inner>
 			</Wrapper>
 		</Container>
 	);

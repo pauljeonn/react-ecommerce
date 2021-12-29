@@ -10,13 +10,15 @@ const Container = styled.div`
 	width: 100%;
 	margin-top: 80px;
 	padding: 30px 0;
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 `;
 
 const FooterContainer = styled.div`
-	width: 80%;
+	width: 90%;
+	max-width: 1400px;
 	display: flex;
 	justify-content: space-between;
 `;
@@ -35,6 +37,7 @@ const Logo = styled.div`
 
 const SocialContainer = styled.div`
 	margin: 10px 20px 0;
+	box-sizing: border-box;
 	display: flex;
 `;
 

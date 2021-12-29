@@ -1,8 +1,6 @@
 import React from 'react';
-import { MdAllInbox, MdAllInclusive } from 'react-icons/md';
 import styled from 'styled-components';
 import About from '../components/About';
-import Announcement from '../components/Announcement';
 import Categories from '../components/Categories';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
@@ -17,7 +15,6 @@ const Home = () => {
 	return (
 		<Container>
 			<Navbar />
-			{/* <Announcement /> */}
 			<Slider />
 			<Categories />
 			<About />

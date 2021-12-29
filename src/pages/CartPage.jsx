@@ -2,24 +2,26 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import { FiPlus } from 'react-icons/fi';
-import { FiMinus } from 'react-icons/fi';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
 	margin-top: 100px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `;
 
 const Wrapper = styled.div`
 	width: 100%;
+	max-width: 1400px;
 	display: flex;
-	padding: 40px 0;
 	margin-top: 20px;
 `;
 
 const Left = styled.div`
-	flex: 3;
+	width: 70%;
 	padding: 0 40px;
 	display: flex;
 	flex-direction: column;
@@ -89,9 +91,9 @@ const Hr = styled.hr`
 `;
 
 const Right = styled.div`
+	width: 30%;
 	margin-left: 40px;
 	padding: 0 40px;
-	flex: 2;
 	display: flex;
 	flex-direction: column;
 `;
@@ -115,7 +117,6 @@ const RightButton = styled.button`
 `;
 
 const Summary = styled.div`
-	width: 70%;
 	margin-bottom: 40px;
 `;
 
@@ -162,10 +163,10 @@ const CartPage = () => {
 									<Details>
 										<ProductName>{product.title}</ProductName>
 										<ProductPrice>
-											{product.price.toLocaleString() + ` 원`}
+											{product.price.toLocaleString() + `원`}
 										</ProductPrice>
-										<ProductColor>{`Color: ${product.color}`}</ProductColor>
-										<ProductSize>{`Size: ${product.size}`}</ProductSize>
+										<ProductColor>{`색상: ${product.color}`}</ProductColor>
+										<ProductSize>{`사이즈: ${product.size}`}</ProductSize>
 										{/* <ProductAmountContainer>
 											<FiPlus />
 											<ProductAmount>{product.quantity}</ProductAmount>

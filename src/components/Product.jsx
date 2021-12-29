@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
-import { FiShoppingCart } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 const Info = styled.div`
@@ -67,10 +66,6 @@ const Product = ({ item }) => {
 					<Icon>
 						<FiSearch style={{ color: 'gray', fontSize: '20' }} />
 					</Icon>
-
-					{/* <Icon>
-					<FiShoppingCart style={{ color: 'gray', fontSize: '20' }} />
-				</Icon> */}
 				</Info>
 			</Link>
 		</Container>
