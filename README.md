@@ -10,6 +10,10 @@
 - Backend: Node.js, Express, MongoDB
 - Deployment: Heroku
 
+## Server Repository
+
+https://github.com/pauljeonn/api-ecommerce
+
 ## 소개
 
 - MERN(MongoDB, Express, React, Node.js) 스택으로 제작한 온라인 쇼핑몰 웹사이트 입니다.
