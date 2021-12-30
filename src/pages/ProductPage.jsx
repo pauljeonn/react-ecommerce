@@ -162,27 +162,10 @@ const ProductPage = () => {
 							<FilterTitle>색상</FilterTitle>
 							<FilterColor onChange={(e) => setColor(e.target.value)}>
 								<FilterColorOption selected>{color}</FilterColorOption>
-								{/* {product.color &&
-									product.color.map((c) => (
-										<FilterColorOption key={c}>
-											{c.charAt(0).toUpperCase() + c.slice(1)}
-										</FilterColorOption>
-									))} */}
 							</FilterColor>
 						</Filter>
 						<Filter>
 							<FilterTitle>사이즈</FilterTitle>
-							{/* {product.size &&
-									product.size.map((s) => (
-										<FilterSizeOption
-											key={s}
-											buttonColor={buttonColor}
-											onClick={() => handleClickSize(s)}
-											selectedSize={s}
-										>
-											{s.toUpperCase()}
-										</FilterSizeOption>
-									))} */}
 							<FilterSize onChange={(e) => setSize(e.target.value)}>
 								<FilterSizeOption selected disabled>
 									사이즈 선택

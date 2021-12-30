@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const Title = styled.h1`
 	padding-top: 30px;
-	padding-left: 40px;
+	margin: 0 auto;
 `;
 
 const FilterContainer = styled.div`
@@ -68,7 +68,9 @@ const ProductListPage = () => {
 		<Container>
 			<Navbar />
 			<Title>
-				{category && category.charAt(0).toUpperCase() + category.slice(1)}
+				{category
+					? category.charAt(0).toUpperCase() + category.slice(1)
+					: 'ALL PRODUCTS'}
 			</Title>
 			<FilterContainer>
 				<Filter>

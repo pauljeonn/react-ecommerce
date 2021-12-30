@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FiSearch } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
 const Info = styled.div`
@@ -11,6 +10,7 @@ const Info = styled.div`
 	left: 0;
 	z-index: 2;
 	background-color: rgba(50, 50, 50, 0.3);
+	color: white;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -40,33 +40,12 @@ const Image = styled.img`
 	object-fit: cover;
 `;
 
-const Icon = styled.div`
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	background-color: white;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	margin: 10px;
-	transition: all 0.5s ease;
-
-	&:hover {
-		transform: scale(1.1);
-		cursor: pointer;
-	}
-`;
-
 const Product = ({ item }) => {
 	return (
 		<Container>
 			<Link to={`/product/${item._id}`}>
 				<Image src={item.img} />
-				<Info>
-					<Icon>
-						<FiSearch style={{ color: 'gray', fontSize: '20' }} />
-					</Icon>
-				</Info>
+				<Info>자세히 보기</Info>
 			</Link>
 		</Container>
 	);
